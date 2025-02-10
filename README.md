@@ -1,3 +1,6 @@
+# Figma
+https://www.figma.com/design/5Lpy7o4AG2F0cNyZToyXLv/Redise%C3%B1o-SofiLinks?node-id=0-1&t=I6yPTk1ZV40LQtBD-1
+
 # Astro Starter Kit: Basics
 
 ```sh
