@@ -1,0 +1,15 @@
+---
+import LiveStatus from "../components/atoms/LiveStatus.astro";
+import Layout from "../layouts/Layout.astro";
+import Image from "../components/Image.astro";
+import Banner from "../components/molecules/Banner.astro";
+
+export const prerender = false;
+// vuelvo en un momento
+---
+
+<Layout title="Welcome to Astro.">
+  <Banner />
+  <!-- <LiveStatus server:defer/> -->
+  <Image />
+</Layout>

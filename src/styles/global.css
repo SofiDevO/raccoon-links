@@ -1,0 +1,29 @@
+@import "tailwindcss";
+
+:root {
+    --bg-color-default: "#E8E7E7";
+    --text-color: #181818;
+}
+
+.dark {
+    --bg-color-default: "#121111";
+}
+
+@theme {
+    --color-primary: var(--bg-color-default);
+    --color-text: var(--text-color);
+    --color-btn: #F5F5F5;
+    --drop-shadow-shadow-cards: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);
+}
+
+html {
+    @apply scroll-smooth *:box-content;
+}
+
+body {
+    @apply font-sans bg-primary m-0 p-0;
+}
+
+main {
+    @apply flex flex-col items-center justify-center max-w-[768px] m-auto shadow-2xl;
+}

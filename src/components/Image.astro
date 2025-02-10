@@ -1,0 +1,9 @@
+---
+import dataImages from "../data/images.json"
+---
+
+<section class="w-full flex flex-col">
+  {dataImages.map(e=> (
+    <img src={`https://i.imgur.com/${e.imageID}.png`} class="h-20 w-20"/>
+  ))}
+</section>
