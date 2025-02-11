@@ -1,7 +1,5 @@
 ---
-
 import "../styles/global.css";
-
 
 interface Props {
   title?: string;
@@ -11,9 +9,11 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
+import { ClientRouter } from "astro:transitions";
+
 const {
-  title = 'Raccoon Links',
-  description = ' All my links in one place',
+  title = "Raccoon Links",
+  description = " All my links in one place",
   image = "img/banner.png",
 } = Astro.props;
 ---
@@ -23,10 +23,9 @@ const {
 <meta name="viewport" content="width=device-width,initial-scale=1" />
 <link rel="icon" type="image/png" href="/img/favicon.png" />
 <meta name="generator" content={Astro.generator} />
-<title>{title} </title>
+<title>{title}</title>
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
-
 
 <!-- Primary Meta Tags -->
 <title>{title}</title>
@@ -47,11 +46,12 @@ const {
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
-<meta property="og:site_name" content={title}>
-
+<meta property="og:site_name" content={title} />
 
 <!-- css librerias/ cdn -->
 
 <!-- Iconify CDN -->
 <script src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"
 ></script>
+
+<ClientRouter />

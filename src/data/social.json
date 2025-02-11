@@ -1,0 +1,17 @@
+[
+  {
+    "name": "GitHub",
+    "icon": "fa:github-alt",
+    "link": "https://github.com/SofiDevO"
+  },
+  {
+    "name": "LinkedIn",
+    "icon": "simple-icons:linkedin",
+    "link": "https://www.linkedin.com/in/sofidev/"
+  },
+  {
+    "name": "CV",
+    "icon": "ant-design:file-pdf-filled",
+    "link": "https://itssofi.dev/docs/Angela_Sofia_Osorio_CV2024_updated.pdf"
+  }
+]

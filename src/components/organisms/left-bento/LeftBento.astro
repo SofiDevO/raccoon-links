@@ -1,0 +1,12 @@
+---
+import Carousel from "./Carousel.tsx";
+import socialData from "../../../data/social.json";
+import LinkSocial from "./LinkSocial.astro";
+---
+
+<section class="flex flex-col p-5 w-full h-full gap-32">
+  <div class="flex flex-col w-full max-w-40 gap-6">
+    {socialData.map((e) => <LinkSocial {...e} />)}
+  </div>
+  <Carousel client:load />
+</section>

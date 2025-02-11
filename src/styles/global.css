@@ -1,12 +1,12 @@
 @import "tailwindcss";
 
 :root {
-    --bg-color-default: "#E8E7E7";
+    --bg-color-default: #E8E7E7;
     --text-color: #181818;
 }
 
 .dark {
-    --bg-color-default: "#121111";
+    --bg-color-default: #121111;
 }
 
 @theme {
@@ -21,9 +21,9 @@ html {
 }
 
 body {
-    @apply font-sans bg-primary m-0 p-0;
+    @apply font-sans bg-primary m-0 p-0 flex flex-col min-h-screen items-center;
 }
 
 main {
-    @apply flex flex-col items-center justify-center max-w-[768px] m-auto shadow-2xl;
+    @apply flex flex-col items-center justify-center max-w-[768px] w-full;
 }
