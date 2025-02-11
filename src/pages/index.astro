@@ -1,15 +1,12 @@
 ---
-
+import LeftBento from "../components/organisms/left-bento/LeftBento.astro";
 import Layout from "../layouts/Layout.astro";
-import Image from "../components/Image.astro";
-
 
 export const prerender = false;
 // vuelvo en un momento
 ---
 
 <Layout title="Welcome to Astro.">
-
   <!-- <LiveStatus server:defer/> -->
-  <Image />
+  <LeftBento />
 </Layout>
