@@ -1,6 +1,6 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Banner from "../components/molecules/Banner.astro";
+import BaseHead from "@components/BaseHead.astro";
+import Header from "@organisms/Header.astro";
 ---
 
 <!doctype html>
@@ -9,8 +9,8 @@ import Banner from "../components/molecules/Banner.astro";
     <BaseHead />
   </head>
   <body>
+    <Header/>
     <main>
-      <Banner />
       <slot />
     </main>
   </body>

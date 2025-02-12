@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import dataImages from "../../../data/images.json";
+import dataImages from "@data/images.json";
 
 let renderData = 0;
 let timeOut: any;

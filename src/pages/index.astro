@@ -1,6 +1,6 @@
 ---
-import LeftBento from "../components/organisms/left-bento/LeftBento.astro";
-import Layout from "../layouts/Layout.astro";
+import LeftBento from "@organisms/left-bento/LeftBento.astro";
+import Layout from "@layouts/Layout.astro";
 
 export const prerender = false;
 // vuelvo en un momento
@@ -8,5 +8,6 @@ export const prerender = false;
 
 <Layout title="Welcome to Astro.">
   <!-- <LiveStatus server:defer/> -->
-  <LeftBento />
+
+  <LeftBento />--bg-color-default
 </Layout>
