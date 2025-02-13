@@ -1,6 +1,9 @@
 ---
 import BaseHead from "@components/BaseHead.astro";
 import Header from "@organisms/Header.astro";
+
+import userData from "@data/user.json";
+console.log(userData)
 ---
 
 <!doctype html>
@@ -9,7 +12,7 @@ import Header from "@organisms/Header.astro";
     <BaseHead />
   </head>
   <body>
-    <Header/>
+    <Header userData={userData}/>
     <main>
       <slot />
     </main>

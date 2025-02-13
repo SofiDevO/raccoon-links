@@ -3,6 +3,6 @@ import socialData from "@data/social.json";
 import LinkSocial from "@atoms/LinkSocial.astro";
 ---
 
-<div class="flex flex-col w-full max-w-40 gap-6">
+<div class="flex w-full gap-2 lg:gap-10 min-h-[8dvh] ">
     {socialData.map((e) => <LinkSocial {...e} />)}
   </div>

@@ -1,0 +1,23 @@
+---
+import ThemeButton from "./ThemeButton.astro"
+
+const { profile__pic, name } = Astro.props
+---
+
+<article
+    class="flex items-center absolute top-[70%] px-2"
+  >
+    <div
+      class="profile__container border-3 border-caracol w-[100px] h-[100px] rounded-full overflow-hidden"
+    >
+      <img
+        class="w-full object-cover"
+        src={profile__pic}
+        alt="Profile image"
+      />
+    </div>
+    <div class="bg-btn p-1 rounded-r-lg -z-1 translate-x-[-.2rem]">
+      <p class="text-gradient font-bold text-lg">{name}</p>
+    </div>
+    <ThemeButton />
+  </article>

@@ -1,13 +1,20 @@
 ---
 import LeftBento from "@organisms/left-bento/LeftBento.astro";
 import Layout from "@layouts/Layout.astro";
+import SocialIcons from "@src/components/atoms/SocialIcons.astro";
 
 export const prerender = false;
 // vuelvo en un momento
+
+
 ---
 
 <Layout title="Welcome to Astro.">
+  <section class="flex items-center">
+    <SocialIcons />
+  </section>
+
   <!-- <LiveStatus server:defer/> -->
 
-  <LeftBento />--bg-color-default
+  <!-- <LeftBento /> -->
 </Layout>

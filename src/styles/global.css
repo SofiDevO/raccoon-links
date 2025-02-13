@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
 :root {
-    --bg-color-default: #E8E7E7;
+    --white-color: #E8E7E7;
+    --bg-color-default: var(--white-color);
     --text-color: #181818;
+    --purple-color: #6A00FF;
 }
 
 .dark {
@@ -13,6 +15,7 @@
     --color-primary: var(--bg-color-default);
     --color-text: var(--text-color);
     --color-btn: #F5F5F5;
+    --color-caracol: var(--purple-color);
     --drop-shadow-shadow-cards: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);
 }
 
@@ -25,5 +28,20 @@ body {
 }
 
 main {
-    @apply flex flex-col items-center justify-center max-w-[768px] w-full;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     max-width: 500px;
+     padding:  4.5rem .5rem .5rem;
+}
+
+.text-gradient {
+    background: var(--purple-color);
+    background:  linear-gradient(90deg, #6A00FF 0%, rgba(0, 116, 174, 0.92) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
 }
