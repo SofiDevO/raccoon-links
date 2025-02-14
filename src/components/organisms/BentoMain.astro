@@ -1,0 +1,72 @@
+---
+
+import Clock from "@src/components/atoms/Clock/Clock";
+import ProductCarousel from "@molecules/ProductCarousel";
+
+
+---
+
+
+  <section class="bento__grid">
+    <div class="bento__item bento__item-1 ">
+        <Clock client:load/>
+    </div>
+    <div class="bento__item bento__item-2">
+
+    </div>
+    <div class="bento__item bento__item-3">
+
+    </div>
+    <div class="bento__item bento__item-4 ">
+        <ProductCarousel client:load/>
+    </div>
+    <div class="bento__item  bento__item-5">
+
+    </div>
+  </section>
+
+
+
+<style is:global>
+
+  .bento__grid {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+            "clock clock twicht twicht twicht"
+            "clock clock portfolio portfolio portfolio"
+            "product product  portfolio portfolio portfolio    "
+            "product product discord discord discord"
+            "product product discord discord discord";
+    gap: 10px;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(5, 100px);
+  }
+
+  .bento__item {
+    min-height: 86px;
+    border-radius:12px;
+  }
+
+  .bento__item-1 {
+    grid-area: clock;
+  }
+  .bento__item-2 {
+    grid-area: twicht;
+  }
+  .bento__item-3 {
+    grid-area: portfolio;
+  }
+  .bento__item-4 {
+    grid-area: product;
+    align-self: flex-start;
+  }
+  .bento__item-5 {
+    grid-area: discord;
+  }
+
+
+</style>
+
+
+<!-- reloj, product , twicht,  portfolio, discord -->

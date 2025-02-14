@@ -1,0 +1,52 @@
+---
+import YoutubeMember from "@molecules/YoutubeMember.astro"
+---
+
+<section id="support-bento">
+    <div class="bento__item">
+        <YoutubeMember />
+    </div>
+    <div class="bento__item">dos</div>
+    <div class="bento__item">tres</div>
+    <div class="bento__item">cuatro</div>
+    <div class="bento__item">cinco</div>
+</section>
+
+<style>
+    section#support-bento {
+        width: 100%;
+        display: grid;
+        grid-template-areas:
+            "uno uno dos"
+            "tres cinco cinco"
+            "cuatro cinco cinco";
+        gap: 10px;
+    }
+
+    .bento__item {
+        min-height: 100px;
+        border-radius: 12px;
+
+    }
+
+    .bento__item:nth-child(1) {
+        grid-area: uno;
+    }
+
+    .bento__item:nth-child(2) {
+        grid-area:dos;
+    }
+
+    .bento__item:nth-child(3) {
+        grid-area: tres;
+    }
+
+    .bento__item:nth-child(4) {
+        grid-area: cuatro;
+    }
+
+    .bento__item:nth-child(5) {
+        grid-area: cinco;
+    }
+
+</style>

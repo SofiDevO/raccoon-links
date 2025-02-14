@@ -1,0 +1,21 @@
+.dateTime {
+    font-size: clamp(1.5rem, 2vw, 3rem);
+    color: var(--purple-color);
+    font-weight: 700;
+    font-family: var(--clock-font);
+
+}
+.hour {
+
+}
+.minute {
+
+}
+.colon {
+    font-size: 1.5rem;
+}
+.meridiem {
+    margin-top: 6px;
+    font-size: 1rem;
+
+}

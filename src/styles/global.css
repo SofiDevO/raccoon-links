@@ -5,8 +5,13 @@
     --bg-color-default: var(--white-color);
     --text-color: #181818;
     --purple-color: #6A00FF;
-}
+    --clock-font:  "DigitalNumbers-Regular", sans-serif;
 
+}
+@font-face {
+    font-family: "DigitalNumbers-Regular";
+    src: url("../../public/fonts/DigitalNumbers-Regular.ttf") format("truetype");
+}
 .dark {
     --bg-color-default: #121111;
 }
@@ -26,6 +31,7 @@ html {
 body {
     @apply font-sans bg-primary m-0 p-0 flex flex-col min-h-screen items-center;
 }
+
 
 main {
      display: flex;

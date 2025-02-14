@@ -4,7 +4,7 @@ import dataImages from "@data/images.json";
 let renderData = 0;
 let timeOut: any;
 
-export default function Carousel() {
+export default function ProductCarousel() {
   const [image, setImage] = useState<string>("");
   const [link, setLink] = useState<string>("");
   const [title, setTitle] = useState<string>("");
