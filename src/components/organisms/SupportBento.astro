@@ -1,15 +1,23 @@
 ---
 import YoutubeMember from "@molecules/YoutubeMember.astro"
+import KofiSupport from "@molecules/KofiSupport.astro"
+import GithubSponsor from "@molecules/GithubSponsor.astro"
 ---
 
 <section id="support-bento">
     <div class="bento__item">
         <YoutubeMember />
     </div>
-    <div class="bento__item">dos</div>
-    <div class="bento__item">tres</div>
+    <div class="bento__item">
+        <KofiSupport />
+    </div>
+    <div class="bento__item">
+        <KofiSupport />
+    </div>
     <div class="bento__item">cuatro</div>
-    <div class="bento__item">cinco</div>
+    <div class="bento__item">
+        <GithubSponsor />
+    </div>
 </section>
 
 <style>
@@ -26,7 +34,8 @@ import YoutubeMember from "@molecules/YoutubeMember.astro"
     .bento__item {
         min-height: 100px;
         border-radius: 12px;
-
+        background-color: #F5F5F5;
+        border-color: aqua;
     }
 
     .bento__item:nth-child(1) {
