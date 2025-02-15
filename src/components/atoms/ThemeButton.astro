@@ -1,8 +1,11 @@
 ---
+const { position = "left-[25%] top-[60%]" } = Astro.props;
 
 ---
 
-<script>
+<script  >
+
+document.addEventListener( 'astro:page-load', () => {
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -31,12 +34,15 @@
   document
     .getElementById("themeToggle")
     .addEventListener("click", handleToggleClick);
+});
+
+
 </script>
 
 
   <button
     id="themeToggle"
-    class="absolute cursor-pointer flex items-center justify-center bg-black/25 backdrop-blur-sm rounded-full w-10 h-10 border border-black overflow-hidden left-[25%] top-[60%]"
+    class=` z-2 absolute cursor-pointer flex items-center justify-center bg-black/25 backdrop-blur-sm rounded-full w-10 h-10 border border-black overflow-hidden ${position}`
   >
     <iconify-icon
       class="sun text-[#ffaa17]"

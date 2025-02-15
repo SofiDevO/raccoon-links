@@ -1,0 +1,27 @@
+{
+    "youtube": {
+        "url": "https://www.youtube.com/@SofiDev/membership",
+        "icon": "fab fa-youtube",
+        "title": "Become a Youtube member"
+    },
+    "kofi": {
+        "url": "https://ko-fi.com/sofidev",
+        "icon": "fas fa-coffee",
+        "title": "Support me on Ko-fi"
+    },
+    "discord": {
+        "url": "https://discord.gg/sofidev",
+        "icon": "fab fa-discord",
+        "title": "Join our Discord server"
+    },
+    "github": {
+        "url": "https://github.com/sponsors/SofiDevO",
+        "icon": "fab fa-github",
+        "title": "Contribute in Github Sponsors"
+    },
+    "amazon": {
+        "url": "#",
+        "icon": "CibAmazon",
+        "title": "Wish List"
+    }
+}

@@ -33,17 +33,17 @@ export default function ProductCarousel() {
   }, []);
 
   return (
-    <section className="min-w-fit w-40 flex relative items-center justify-center select-none">
-      <div className="absolute flex bottom-20 px-2 w-full items-center justify-center">
+    <section className="min-w-fit w-full flex relative items-center justify-center select-none">
+      <div className="absolute flex bottom-8 px-2 w-full items-center justify-center">
         <a
           href={link}
           target="_blank"
-          className={`${image === "ZSdGAbr" ? "w-4/5 pb-7" : "h-auto w-full -rotate-6"}`}
+          className={`${image === "ZSdGAbr" ? "w-4/5 pb-7" : "h-auto w-full -rotate-12"}`}
         >
           <img src={`https://i.imgur.com/${image}.png`} />
         </a>
       </div>
-      <div className="flex flex-wrap justify-center w-full gap-2.5 absolute px-5">
+      <div className="flex flex-wrap justify-center w-full gap-2.5 absolute px-5  bottom-8">
         {allPoints.map((e) => (
           <span
             key={e}
@@ -55,7 +55,7 @@ export default function ProductCarousel() {
           />
         ))}
       </div>
-      <div className="flex flex-wrap justify-center w-full absolute mt-20 px-4">
+    {/*   <div className="flex flex-wrap justify-center w-full absolute mt-20 px-4">
         <a
           href={link}
           target="_blank"
@@ -63,7 +63,7 @@ export default function ProductCarousel() {
         >
           {title}
         </a>
-      </div>
+      </div> */}
       <div className="w-full h-40 rounded-xl bg-white shadow-md"></div>
     </section>
   );

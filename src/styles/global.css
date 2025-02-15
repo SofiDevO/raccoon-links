@@ -5,6 +5,7 @@
     --bg-color-default: var(--white-color);
     --text-color: #181818;
     --purple-color: #6A00FF;
+    --dark-purple: #140030;
     --clock-font:  "DigitalNumbers-Regular", sans-serif;
 
 }
@@ -21,6 +22,7 @@
     --color-text: var(--text-color);
     --color-btn: #F5F5F5;
     --color-caracol: var(--purple-color);
+    --color-darkpurple: var(--dark-purple);
     --drop-shadow-shadow-cards: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);
 }
 

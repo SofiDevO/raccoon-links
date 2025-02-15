@@ -1,13 +1,13 @@
 ---
-const isLive = await fetch("https://www.twitch.tv/sofidev");
-const text = await isLive.text();
-const isLiveBroadcast = text.includes("isLiveBroadcast") ? "active" : "";
+import { isLiveBroadcast } from "@utils/IsLive";
 
+const { class: className, ...props } = Astro.props;
 ---
-<button class={`online ${isLiveBroadcast}`}></button>
+
+<button class={`online ${isLiveBroadcast} ${className}`} {...props}></button>
 
 <style is:global>
-  .online{
+  .online {
     width: 20px;
     height: 20px;
     border-radius: 50%;
@@ -15,7 +15,7 @@ const isLiveBroadcast = text.includes("isLiveBroadcast") ? "active" : "";
     border-radius: 50%;
     background: #4e4e4eb8;
   }
-  .online.active{
+  .online.active {
     background: #e90000;
     box-shadow: 0 0 0 0 rgba(185, 185, 185, 0.267);
     animation: l1 1s infinite;

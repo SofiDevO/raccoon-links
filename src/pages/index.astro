@@ -4,17 +4,16 @@ import Layout from "@layouts/Layout.astro";
 import SocialIcons from "@src/components/atoms/SocialIcons.astro";
 import BentoMain from "@organisms/BentoMain.astro";
 import SupportBento from "@organisms/SupportBento.astro";
+import Header from "@src/components/organisms/Header.astro";
 export const prerender = false;
-// vuelvo en un momento
+import userData from "@data/user.json";
 ---
 
 <Layout title="Welcome to Astro.">
-
+  <Header userData={userData}/>
+  <main>
     <SocialIcons />
-
-  <BentoMain/>
-
-  <!-- <LiveStatus server:defer/> -->
-
-  <!-- <LeftBento /> -->
+    <BentoMain />
+    <SupportBento />
+  </main>
 </Layout>

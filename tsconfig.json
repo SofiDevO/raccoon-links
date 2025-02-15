@@ -22,6 +22,7 @@
       "@layouts/*": ["src/layouts/*"],
       "@pages/*": ["src/pages/*"],
       "@controllers/*": ["src/controllers/*"],
+      "@utils/*": ["src/utils/*"],
       "@services/*": ["src/services/*"],
       "@data/*": ["src/data/*"],
       "@sass/*": ["src/sass/*"],

@@ -1,0 +1,29 @@
+---
+import Avatar from "@src/components/atoms/Avatar.astro";
+import Layout from "@src/layouts/Layout.astro";
+import userData from "@data/user.json";
+export const prerender = false;
+import { slide } from "astro:transitions";
+import { Content as AboutDescription } from "@data/about.md";
+
+---
+
+<Layout title="About">
+  <main
+    class="flex flex-col relative mb-20 pt-20 items-start"
+    transition:name="about"
+    transition:animate="slide"
+  >
+    <Avatar
+      hasName={false}
+      name={userData.name}
+      profile__pic={userData.profilePic}
+    />
+    <article class="flex flex-col justify-center items-center h-full">
+      <h1 class="text-gradient font-bold text-3xl">
+        {userData.name}
+      </h1>
+      <AboutDescription />
+    </article>
+  </main>
+</Layout>

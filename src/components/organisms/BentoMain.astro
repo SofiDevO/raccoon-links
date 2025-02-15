@@ -2,8 +2,9 @@
 
 import Clock from "@src/components/atoms/Clock/Clock";
 import ProductCarousel from "@molecules/ProductCarousel";
-
-
+import TwichCard from "../atoms/TwichCard.astro";
+import userData from "@data/user.json";
+console.log(userData.twitch);
 ---
 
 
@@ -12,7 +13,7 @@ import ProductCarousel from "@molecules/ProductCarousel";
         <Clock client:load/>
     </div>
     <div class="bento__item bento__item-2">
-
+      <TwichCard twitchLink={userData.twitch}/>
     </div>
     <div class="bento__item bento__item-3">
 
@@ -34,18 +35,23 @@ import ProductCarousel from "@molecules/ProductCarousel";
     display: grid;
     grid-template-areas:
             "clock clock twicht twicht twicht"
-            "clock clock portfolio portfolio portfolio"
-            "product product  portfolio portfolio portfolio    "
-            "product product discord discord discord"
-            "product product discord discord discord";
+
+
+            "portfolio portfolio portfolio portfolio portfolio"
+            "portfolio portfolio portfolio portfolio portfolio"
+
+            "discord discord  discord product product   "
+            "discord discord  discord product product   "
+            "discord discord  discord product product   ";
     gap: 10px;
     grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(5, 100px);
+    grid-template-rows: repeat(5, 1fr);
   }
 
   .bento__item {
     min-height: 86px;
     border-radius:12px;
+    box-shadow:  0px 0px 6.8px 0px rgba(0, 0, 0, 0.25);
   }
 
   .bento__item-1 {
