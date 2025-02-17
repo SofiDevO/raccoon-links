@@ -3,6 +3,7 @@
 import Clock from "@src/components/atoms/Clock/Clock";
 import ProductCarousel from "@molecules/ProductCarousel";
 import TwichCard from "../atoms/TwichCard.astro";
+import CardSkeleton from "@molecules/CardSkeleton.astro";
 import userData from "@data/user.json";
 console.log(userData.twitch);
 ---
@@ -13,7 +14,11 @@ console.log(userData.twitch);
         <Clock client:load/>
     </div>
     <div class="bento__item bento__item-2">
-      <TwichCard twitchLink={userData.twitch}/>
+      <TwichCard twitchLink={userData.twitch} server:defer>
+        <div slot="fallback">
+          <CardSkeleton/>
+        </div>
+      </TwichCard>
     </div>
     <div class="bento__item bento__item-3">
 

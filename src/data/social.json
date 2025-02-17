@@ -13,5 +13,20 @@
     "name": "CV",
     "icon": "ant-design:file-pdf-filled",
     "link": "https://itssofi.dev/docs/Angela_Sofia_Osorio_CV2024_updated.pdf"
+  },
+  {
+    "name": "OnlyFans",
+    "icon": "ant-design:file-pdf-filled",
+    "link": "https://itssofi.dev/docs/Angela_Sofia_Osorio_CV2024_updated.pdf"
+  },
+  {
+    "name": "Kick",
+    "icon": "ant-design:file-pdf-filled",
+    "link": "https://itssofi.dev/docs/Angela_Sofia_Osorio_CV2024_updated.pdf"
+  },
+  {
+    "name": "Patata",
+    "icon": "ant-design:file-pdf-filled",
+    "link": "https://itssofi.dev/docs/Angela_Sofia_Osorio_CV2024_updated.pdf"
   }
 ]

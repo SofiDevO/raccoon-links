@@ -4,12 +4,13 @@ import Layout from "@src/layouts/Layout.astro";
 import userData from "@data/user.json";
 export const prerender = false;
 import { slide } from "astro:transitions";
-import { Content as AboutDescription } from "@data/about.md";
-
+import { Content as AboutDescription } from "@data/about.mdx";
+import CardAbout from "@src/components/atoms/CardAbout.astro";
 ---
 
 <Layout title="About">
   <main
+    id="about"
     class="flex flex-col relative mb-20 pt-20 items-start"
     transition:name="about"
     transition:animate="slide"
@@ -19,11 +20,33 @@ import { Content as AboutDescription } from "@data/about.md";
       name={userData.name}
       profile__pic={userData.profilePic}
     />
-    <article class="flex flex-col justify-center items-center h-full">
-      <h1 class="text-gradient font-bold text-3xl">
+    <CardAbout>
+      <h1 class="text-gradient text-center font-bold text-3xl text-color-text">
         {userData.name}
       </h1>
       <AboutDescription />
-    </article>
+    </CardAbout>
   </main>
 </Layout>
+
+<style is:global>
+  #about {
+    & h1, h2,h3, h4, h5, h6, p, li {
+      color: var(--text-color);
+      & a {
+        color: #096ffd;
+        font-weight: 600;
+        text-decoration: underline solid 1px;
+        text-underline-offset: 2px;
+      }
+    }
+    & pre {
+      padding: 1rem;
+      border-radius: 6px;
+    }
+    li {
+      list-style: disc;
+      font-weight: 600;
+    }
+  }
+</style>

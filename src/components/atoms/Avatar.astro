@@ -7,21 +7,24 @@ const { profile__pic, name, hasName = true } = Astro.props;
 ---
 
 <article class={`flex items-center  px-2 ${hasName && "absolute top-3/5  left-0"}`}>
-  <div
-    class="profile__container border-3 z-1 border-caracol w-[100px] h-[100px] rounded-full overflow-hidden"
+  <div class="relative z-1">
+    <div
+    class="profile__container border-3  border-caracol w-[100px] h-[100px] rounded-full overflow-hidden"
   >
-    <img
+  <img
       class="w-full object-cover h-full"
       src={profile__pic}
       alt="Profile image"
-    />
+      />
+    </div>
+    <ThemeButton  position="left-[60%] top-[60%]"/>
   </div>
   {
     hasName && (
-      <a href="/about" class="bg-btn p-1 rounded-r-lg translate-x-[-.2rem] relative" transition:name="about">
+      <a href="/about" class="bg-btn p-1 rounded-r-lg translate-x-[-.2rem] relative"  transition:name="about">
         <p class="text-gradient font-bold text-lg">{name}</p>
       </a>
     )
   }
-  {hasName ?  <ThemeButton />   : <ThemeButton position="left-[55%] top-[38%]" /> }
+
 </article>

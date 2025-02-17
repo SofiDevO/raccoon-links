@@ -15,11 +15,12 @@
 }
 .dark {
     --bg-color-default: #121111;
+    --text-color: #E8E7E7;
 }
 
 @theme {
     --color-primary: var(--bg-color-default);
-    --color-text: var(--text-color);
+    --color-color-text: var(--text-color);
     --color-btn: #F5F5F5;
     --color-caracol: var(--purple-color);
     --color-darkpurple: var(--dark-purple);

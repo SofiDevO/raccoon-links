@@ -1,10 +1,8 @@
 ---
-import { isLiveBroadcast } from "@utils/IsLive";
-
-const { class: className, ...props } = Astro.props;
+const { class: className, isLiveBroadcast, ...props } = Astro.props;
 ---
-
-<button class={`online ${isLiveBroadcast} ${className}`} {...props}></button>
+<button
+  class={`online ${isLiveBroadcast ? "active" : ""} ${className}`} {...props}></button>
 
 <style is:global>
   .online {
