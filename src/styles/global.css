@@ -7,6 +7,7 @@
     --purple-color: #6A00FF;
     --dark-purple: #140030;
     --clock-font:  "DigitalNumbers-Regular", sans-serif;
+    --card-bg: #ffffff;
 
 }
 @font-face {
@@ -14,8 +15,9 @@
     src: url("../../public/fonts/DigitalNumbers-Regular.ttf") format("truetype");
 }
 .dark {
-    --bg-color-default: #121111;
+    --bg-color-default: #191b22;
     --text-color: #E8E7E7;
+    --card-bg: #0c0c0c;
 }
 
 @theme {
@@ -24,6 +26,7 @@
     --color-btn: #F5F5F5;
     --color-caracol: var(--purple-color);
     --color-darkpurple: var(--dark-purple);
+    --color-card: var(--card-bg);
     --drop-shadow-shadow-cards: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);
 }
 

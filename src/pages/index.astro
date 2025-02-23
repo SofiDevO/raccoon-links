@@ -7,11 +7,12 @@ import SupportBento from "@organisms/SupportBento.astro";
 import Header from "@src/components/organisms/Header.astro";
 export const prerender = false;
 import userData from "@data/user.json";
+
 ---
 
 <Layout title="Welcome to Astro.">
   <Header userData={userData}/>
-  <main>
+  <main  >
     <SocialIcons />
     <BentoMain />
     <SupportBento />

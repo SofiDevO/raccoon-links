@@ -7,12 +7,10 @@ const { twitchLink } = Astro.props;
 
 <a
   href="/lives"
-  target="_blank"
+
   class="w-full h-full flex flex-col items-center justify-center gap-2 relative bg-linear-to-b from-caracol to-darkpurple rounded-[14px]"
 >
-  <LiveStatus class={"absolute top-2 left-[85%]"} isLiveBroadcast>
-    <p slot="fallback">loading...</p>
-  </LiveStatus>
+  <LiveStatus class={"absolute top-2 left-[85%]"} isLiveBroadcast/>
   <div class="flex items-center gap-2 flex-wrap justify-center">
     <iconify-icon
       icon="akar-icons:twitch-fill"

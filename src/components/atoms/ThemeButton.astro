@@ -1,5 +1,5 @@
 ---
-const { position } = Astro.props;
+const { position, positionStyle="absolute" } = Astro.props;
 
 ---
 
@@ -42,7 +42,7 @@ document.addEventListener( 'astro:page-load', () => {
 
   <button
     id="themeToggle"
-    class=`z-2 absolute cursor-pointer flex items-center justify-center bg-black/25 backdrop-blur-sm rounded-full w-10 h-10 border border-black overflow-hidden ${position}`
+    class=`z-2 ${positionStyle} cursor-pointer flex items-center justify-center bg-black/25 backdrop-blur-sm rounded-full w-10 h-10 border border-black overflow-hidden ${position}`
   >
     <iconify-icon
       class="sun text-[#ffaa17]"

@@ -1,15 +1,18 @@
 ---
 import Avatar from "../atoms/Avatar.astro";
 const {userData} = Astro.props
-
+import { fade } from "astro:transitions";
 ---
 
-<header class="w-full max-w-[500px] h-[20dvh] flex flex-col  justify-start relative">
+<header class="w-full max-w-[500px] h-[20dvh] flex flex-col  justify-start relative ">
   <div class="banner__container">
     <img class="h-[20dvh]  object-cover  w-full bg-top" src={userData.bannerImage} />
     <div class="reflect"></div>
   </div>
-  <Avatar name={userData.name} profile__pic={userData.profilePic} />
+  <Avatar name={userData.name} profile__pic={userData.profilePic}
+    transition="home"
+    animate="fade"
+  />
 </header>
 
 <style>
