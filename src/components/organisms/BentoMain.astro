@@ -5,6 +5,15 @@ import ProductCarousel from "@molecules/ProductCarousel";
 import TwichCard from "../atoms/TwichCard.astro";
 import CardSkeleton from "@molecules/CardSkeleton.astro";
 import userData from "@data/user.json";
+
+const res = await fetch("https://blog.itssofi.dev/")
+const data = await res.text();
+console.log(data);
+const parser = new DOMParser();
+const doc = parser.parseFromString(data, "text/html");
+const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
+
+console.log(ogImage);
 ---
 
 
@@ -20,8 +29,13 @@ import userData from "@data/user.json";
       </TwichCard>
     </div>
     <div class="bento__item bento__item-3">
-
-    </div>
+      <!-- Portfolio -->
+       <a href="" class="flex flex-col justify-center items-center relative bg-[url('/assets/Portfolio.png')]">
+        <h2 class="text-gradient font-bold text-center text-3xl ">Portafolio</h2>
+        <p class="text-lg text-color-text">Visita mi portafolio</p>
+        <img src="" alt="">
+       </a>
+          </div>
     <div class="bento__item bento__item-4 ">
         <ProductCarousel client:load/>
     </div>
