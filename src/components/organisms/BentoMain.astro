@@ -6,6 +6,7 @@ import TwichCard from "../atoms/TwichCard.astro";
 import CardSkeleton from "@molecules/CardSkeleton.astro";
 import userData from "@data/user.json";
 
+
 const res = await fetch("https://blog.itssofi.dev/")
 const data = await res.text();
 console.log(data);
@@ -14,6 +15,8 @@ const doc = parser.parseFromString(data, "text/html");
 const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
 
 console.log(ogImage);
+
+// npm i dom-parser
 ---
 
 
@@ -44,7 +47,14 @@ console.log(ogImage);
     </div>
   </section>
 
-
+<script>
+  const res = await fetch("https://blog.itssofi.dev/")
+  const data = await res.text();
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(data, "text/html");
+  const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
+  console.log(ogImage);
+</script>
 
 <style is:global>
 
