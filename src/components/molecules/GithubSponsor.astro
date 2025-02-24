@@ -9,11 +9,11 @@ const githubImagaProfile = User.github + ".png";
 href={url}
 target="_blank"
 class="w-full h-full flex flex-col items-center justify-around gap-4 p-2 bg-gradient-to-t from-[#CA95FF] to-white border-[1.8px] border-[#D6ACFF] shadow-[0_1px_6.7px_0] shadow-[#763CC7] rounded-md">
-    <h3 class="text-text font-bold text-xl">{title}</h3>
-    <div class="w-full flex flex-row justify-between gap-4">
-        <img src={githubImagaProfile} alt="Github Sponsors" class="max-w-[100px] rounded-full" />
+    <h3 class="text-text font-bold text-xl text-balance">{title}</h3>
+    <div class="w-full flex flex-row justify-around gap-2">
+        <img src={githubImagaProfile} alt="Github Sponsors" class="w-full max-w-[90px] rounded-full" />
         <div class="flex flex-col justify-end">
-            <iconify-icon icon="fa:github-alt" width="60" height="60"></iconify-icon>
+            <iconify-icon class="text-[#763CC7] w-full" icon="fa:github-alt" width="60" height="60"></iconify-icon>
         </div>
     </div>
 </a>

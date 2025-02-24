@@ -1,76 +1,55 @@
 ---
-
 import Clock from "@src/components/atoms/Clock/Clock";
 import ProductCarousel from "@molecules/ProductCarousel";
 import TwichCard from "../atoms/TwichCard.astro";
 import CardSkeleton from "@molecules/CardSkeleton.astro";
 import userData from "@data/user.json";
+import PortfolioCard from "../atoms/PortfolioCard/PortfolioCard.astro";
 
-
-const res = await fetch("https://blog.itssofi.dev/")
-const data = await res.text();
-console.log(data);
-const parser = new DOMParser();
-const doc = parser.parseFromString(data, "text/html");
-const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
-
-console.log(ogImage);
-
-// npm i dom-parser
 ---
 
+<section class="bento__grid">
+  <div class="bento__item bento__item-1">
+    <Clock client:load />
+  </div>
+  <div class="bento__item bento__item-2">
+    <TwichCard twitchLink={userData.twitch} server:defer>
+      <div slot="fallback">
+        <CardSkeleton />
+      </div>
+    </TwichCard>
+  </div>
+  <div class="bento__item bento__item-3 overflow-hidden">
+   <PortfolioCard />
+  </div>
+  <div class="bento__item bento__item-4">
+    <ProductCarousel client:load />
+  </div>
+  <div class="bento__item bento__item-5"></div>
+</section>
 
-  <section class="bento__grid">
-    <div class="bento__item bento__item-1 ">
-        <Clock client:load/>
-    </div>
-    <div class="bento__item bento__item-2">
-      <TwichCard twitchLink={userData.twitch} server:defer>
-        <div slot="fallback">
-          <CardSkeleton/>
-        </div>
-      </TwichCard>
-    </div>
-    <div class="bento__item bento__item-3">
-      <!-- Portfolio -->
-       <a href="" class="flex flex-col justify-center items-center relative bg-[url('/assets/Portfolio.png')]">
-        <h2 class="text-gradient font-bold text-center text-3xl ">Portafolio</h2>
-        <p class="text-lg text-color-text">Visita mi portafolio</p>
-        <img src="" alt="">
-       </a>
-          </div>
-    <div class="bento__item bento__item-4 ">
-        <ProductCarousel client:load/>
-    </div>
-    <div class="bento__item  bento__item-5">
-
-    </div>
-  </section>
-
-<script>
+<!-- <script>
   const res = await fetch("https://blog.itssofi.dev/")
   const data = await res.text();
   const parser = new DOMParser();
   const doc = parser.parseFromString(data, "text/html");
   const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
+  const portfolio = document.getElementById("portfolio") as HTMLAnchorElement;
   console.log(ogImage);
-</script>
+  portfolio.style.backgroundImage = `url(${ogImage})`;
+</script> -->
 
 <style is:global>
-
   .bento__grid {
     width: 100%;
     display: grid;
     grid-template-areas:
-            "clock clock twicht twicht twicht"
-
-
-            "portfolio portfolio portfolio portfolio portfolio"
-            "portfolio portfolio portfolio portfolio portfolio"
-
-            "discord discord  discord product product   "
-            "discord discord  discord product product   "
-            "discord discord  discord product product   ";
+      "clock clock twicht twicht twicht"
+      "portfolio portfolio portfolio portfolio portfolio"
+      "portfolio portfolio portfolio portfolio portfolio"
+      "discord discord  discord product product   "
+      "discord discord  discord product product   "
+      "discord discord  discord product product   ";
     gap: 10px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
@@ -78,8 +57,8 @@ console.log(ogImage);
 
   .bento__item {
     min-height: 86px;
-    border-radius:12px;
-    box-shadow:  0px 0px 6.8px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 12px;
+    box-shadow: 0px 0px 6.8px 0px rgba(0, 0, 0, 0.25);
   }
 
   .bento__item-1 {
@@ -98,9 +77,6 @@ console.log(ogImage);
   .bento__item-5 {
     grid-area: discord;
   }
-
-
 </style>
-
 
 <!-- reloj, product , twicht,  portfolio, discord -->
