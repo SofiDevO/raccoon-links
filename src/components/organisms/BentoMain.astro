@@ -4,8 +4,7 @@ import ProductCarousel from "@molecules/ProductCarousel";
 import TwichCard from "../atoms/TwichCard.astro";
 import CardSkeleton from "@molecules/CardSkeleton.astro";
 import userData from "@data/user.json";
-import PortfolioCard from "../atoms/PortfolioCard/PortfolioCard.astro";
-
+import CardBento from "../atoms/CardBento/CardBento.astro";
 ---
 
 <section class="bento__grid">
@@ -20,24 +19,41 @@ import PortfolioCard from "../atoms/PortfolioCard/PortfolioCard.astro";
     </TwichCard>
   </div>
   <div class="bento__item bento__item-3 overflow-hidden">
-   <PortfolioCard />
+    <CardBento
+      title="Portfolio"
+      link="https://itssofi.dev"
+      texto="Ver mis proyectos"
+      bgImage="https://i.imgur.com/jeagMyA.jpeg"
+    >
+      <iconify-icon
+        slot="icon"
+        class="absolute top-[45%] -left-20 rotate-[40deg] group-hover:top-6 transition-all ease-in-out duration-200"
+        icon="heroicons:wallet-16-solid"
+        width="200"
+        height="200"
+        style="color: #fff"></iconify-icon>
+    </CardBento>
   </div>
   <div class="bento__item bento__item-4">
     <ProductCarousel client:load />
   </div>
-  <div class="bento__item bento__item-5"></div>
+  <div class="bento__item bento__item-5 overflow-hidden">
+    <CardBento
+      title="Portfolio"
+      link="https://itssofi.dev"
+      texto="Ver mis proyectos"
+      bgImage="img/paisaje.webp"
+    >
+      <iconify-icon
+        class="absolute top-24 -right-7 -rotate-[30deg] group-hover:top-16 transition-all ease-in-out duration-200"
+        slot="icon"
+        icon="ic:outline-discord"
+        width="130"
+        height="130"
+        style="color: #fff"></iconify-icon>
+    </CardBento>
+  </div>
 </section>
-
-<!-- <script>
-  const res = await fetch("https://blog.itssofi.dev/")
-  const data = await res.text();
-  const parser = new DOMParser();
-  const doc = parser.parseFromString(data, "text/html");
-  const ogImage = doc.querySelector('meta[property="og:image"]')?.getAttribute("content") || "";
-  const portfolio = document.getElementById("portfolio") as HTMLAnchorElement;
-  console.log(ogImage);
-  portfolio.style.backgroundImage = `url(${ogImage})`;
-</script> -->
 
 <style is:global>
   .bento__grid {
@@ -51,8 +67,10 @@ import PortfolioCard from "../atoms/PortfolioCard/PortfolioCard.astro";
       "discord discord  discord product product   "
       "discord discord  discord product product   ";
     gap: 10px;
+    row-gap: 12px;
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: repeat(5, 1fr);
+    margin-bottom: 0.8rem;
   }
 
   .bento__item {
@@ -78,5 +96,3 @@ import PortfolioCard from "../atoms/PortfolioCard/PortfolioCard.astro";
     grid-area: discord;
   }
 </style>
-
-<!-- reloj, product , twicht,  portfolio, discord -->

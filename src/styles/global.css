@@ -9,10 +9,11 @@
     --clock-font:  "DigitalNumbers-Regular", sans-serif;
     --card-bg: #ffffff;
 
+    --color-celeste: rgba(0, 116, 174, 0.92);
 }
 @font-face {
     font-family: "DigitalNumbers-Regular";
-    src: url("../../public/fonts/DigitalNumbers-Regular.ttf") format("truetype");
+    src: url("/fonts/DigitalNumbers-Regular.ttf") format("truetype");
 }
 .dark {
     --bg-color-default: #191b22;
@@ -25,6 +26,7 @@
     --color-color-text: var(--text-color);
     --color-btn: #F5F5F5;
     --color-caracol: var(--purple-color);
+    --color-celeste: var(--color-celeste);
     --color-darkpurple: var(--dark-purple);
     --color-card: var(--card-bg);
     --drop-shadow-shadow-cards: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);

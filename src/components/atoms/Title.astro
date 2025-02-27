@@ -1,0 +1,6 @@
+---
+const { title, class:className, ...props} = Astro.props;
+---
+
+
+<h2 class={className} {...props}>{title}</h2>

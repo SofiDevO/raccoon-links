@@ -1,0 +1,22 @@
+---
+const { title, texto, link, bgImage } = Astro.props;
+---
+
+<a
+  href={link}
+  target="_blank"
+  rel="noopener noreferrer nofollow"
+  id="portfolio"
+  class={`flex flex-col justify-center h-full items-center group relative  bg-cover`}
+  style={{backgroundImage: `url(${bgImage})`}}
+>
+  <div
+    class="w-full flex flex-col items-center gap-5 pt-10 px-4 overflow-hidden h-full backdrop-blur-[9px] bg-transparent"
+  >
+    <h2 class="text-white font-bold text-center text-3xl">{title}</h2>
+    <p class="text-lg text-white font-semibold">
+      {texto}
+    </p>
+    <slot name="icon" />
+  </div>
+</a>
