@@ -1,21 +1,23 @@
 ---
 import YoutubeChannels from "@data/youtubeChannels.json";
 import { fetchYouTubeVideos } from "@src/services/youtubeService";
+
+const MAX_VIDEOS = 5;
+const CHANNEL_ID = YoutubeChannels[0].split("channel/")[1];
+const latestVideos = await fetchYouTubeVideos(
+  CHANNEL_ID
+);
 ---
 
 <div class="swiper__container">
   <swiper-container class="mySwiper" effect="cards" grab-cursor="true">
     {
-      Object.values(YoutubeChannels).map(async (channel) => {
-        const lastVideo = await fetchYouTubeVideos(
-          channel.split("channel/")[1]
-        );
-        const { link, title } = lastVideo[0];
-
+      latestVideos.slice(0, MAX_VIDEOS).map((video: any) => {
+        const { link, title } = video;
         return (
           <swiper-slide>
             <article class="rounded-2xl overflow-hidden w-full">
-              <fast-youtube src={link} />
+              <fast-youtube src={link} title={title} />
             </article>
           </swiper-slide>
         );
@@ -47,12 +49,11 @@ import { fetchYouTubeVideos } from "@src/services/youtubeService";
   }
 
   .swiper__container {
-    background: #fff;
     font-family:
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
+    Helvetica Neue,
+    Helvetica,
+    Arial,
+    sans-serif;
     font-size: 14px;
     color: #000;
     margin: 0;
@@ -63,11 +64,15 @@ import { fetchYouTubeVideos } from "@src/services/youtubeService";
     display: flex;
     justify-content: center;
     align-items: center;
+
   }
 
   swiper-container {
-    width: 30rem;
+    padding: 0 .5rem;
+    width: 100%;
+    max-width: 23rem;
     height: auto;
+    overflow: hidden;
   }
 
   swiper-slide {
