@@ -12,11 +12,11 @@ import CardBento from "../atoms/CardBento/CardBento.astro";
     <Clock client:load />
   </div>
   <div class="bento__item bento__item-2">
-    <TwichCard twitchLink={userData.twitch} server:defer>
+  <!--   <TwichCard twitchLink={userData.twitch} server:defer>
       <div slot="fallback">
         <CardSkeleton />
       </div>
-    </TwichCard>
+    </TwichCard> -->
   </div>
   <div class="bento__item bento__item-3 overflow-hidden">
     <CardBento
@@ -35,7 +35,7 @@ import CardBento from "../atoms/CardBento/CardBento.astro";
     </CardBento>
   </div>
   <div class="bento__item bento__item-4">
-    <!-- <ProductCarousel client:load /> -->
+    <ProductCarousel client:load />
   </div>
   <div class="bento__item bento__item-5 overflow-hidden">
     <CardBento
