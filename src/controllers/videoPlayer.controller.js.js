@@ -1,14 +1,9 @@
-import { cardsData } from "@src/services/getCards";
 
 import { fetchYouTubeVideos } from '@services/youtubeService';
 
-const getChannelId = () => {
-    return cardsData.youtube.split("channel/")[1] ;
-}
 
 
 
-const channelId = getChannelId();
 
 
 const loader = document.querySelector(".heart__loader");

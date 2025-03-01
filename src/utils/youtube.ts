@@ -57,9 +57,9 @@ export class fastYoutube extends HTMLElement {
                           -webkit-line-clamp: 1;
                           -webkit-box-orient: vertical;
                           overflow: hidden;
-                          color: aqua;
+                          color: white;
                           font-weight: bold;
-                          filter: drop-shadow(3px 3px 2px #000000);
+                          filter: drop-shadow(1px 2px 8px  #000);
                   }
               }
 

@@ -49,6 +49,7 @@ main {
      width: 100%;
      max-width: 500px;
      padding:  4.5rem .5rem .5rem;
+     gap: .8rem;
 }
 
 .text-gradient {

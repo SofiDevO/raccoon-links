@@ -5,7 +5,11 @@ interface Props {
 }
 const { src, title } = Astro.props
 
+import YoutubeData from '@data/youtubeChannels.json';
+
+
+
+const links = YoutubeData.map(data => data.split("channel/")[1])
+console.log(links);
+
 ---
-<article class="rounded-2xl overflow-hidden">
-    <fast-youtube src={src} title={title}></fast-youtube>`
-</article>
