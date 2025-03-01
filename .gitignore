@@ -1,5 +1,7 @@
 # build output
 dist/
+#ignor vercel
+.vercel
 
 # generated types
 .astro/
