@@ -1,6 +1,9 @@
 @import "tailwindcss";
 
 :root {
+    --swiper-navigation-color: aqua;
+
+
     --white-color: #E8E7E7;
     --bg-color-default: var(--white-color);
     --text-color: #181818;
@@ -11,6 +14,8 @@
 
     --color-celeste: rgba(0, 116, 174, 0.92);
 }
+
+
 @font-face {
     font-family: "DigitalNumbers-Regular";
     src: url("/fonts/DigitalNumbers-Regular.ttf") format("truetype");
