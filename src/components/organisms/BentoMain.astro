@@ -13,9 +13,7 @@ import CardBento from "../atoms/CardBento/CardBento.astro";
   </div>
   <div class="bento__item bento__item-2">
     <TwichCard twitchLink={userData.twitch} server:defer>
-      <div slot="fallback">
-        <CardSkeleton />
-      </div>
+        <CardSkeleton slot="fallback" />
     </TwichCard>
   </div>
   <div class="bento__item bento__item-3 overflow-hidden">
