@@ -11,8 +11,10 @@ const { name, icon, link } = Astro.props;
 <a
   href={link}
   target="_blank"
-  class="w-full  min-h-fit rounded-md h-11 flex items-center justify-center bg-gradient-to-t from-[#CA95FF] to-white border-[1.8px] border-[#D6ACFF] shadow-[0_1px_6.7px_0] shadow-[#763CC7] gap-1 text-text font-bold tracking-wider text-sm px-2"
+  class="group relative w-[50px] rounded-full h-[50px] flex items-center justify-center bg-gradient-to-t from-[#CA95FF] to-white border-[1.8px] border-[#D6ACFF] shadow-[0_1px_6.7px_0] shadow-[#763CC7] gap-10 text-text font-bold tracking-wider text-sm px-2"
 >
   <iconify-icon icon={icon} width="18" height="18"></iconify-icon>
-  {name}
+  <span  class="hidden absolute top-14 bg-caracol text-white p-1 rounded-md group-hover:block z-10">
+    {name}
+  </span>
 </a>
