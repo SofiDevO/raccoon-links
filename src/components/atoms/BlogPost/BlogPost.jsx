@@ -17,7 +17,7 @@ const BlogPost = () => {
                 firstPost.featuredImage?.node.mediaItemUrl ||
                 "/img/bannerSofidev.webp"
               }
-              className="w-full h-full object-cover group-hover:scale-120  group-hover:saturate-50 transition-transform duration-500 ease-in-out"
+              className="w-full h-full object-cover group-hover:scale-[1.05]  group-hover:saturate-50 transition-transform duration-500 ease-in-out"
             />
 
           </div>

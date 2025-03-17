@@ -3,8 +3,8 @@ import Clock from "@src/components/atoms/Clock/Clock";
 import ProductCarousel from "@molecules/ProductCarousel";
 import TwichCard from "../atoms/TwichCard.astro";
 import CardSkeleton from "@molecules/CardSkeleton.astro";
-import userData from "@data/user.json";
 import CardBento from "../atoms/CardBento/CardBento.astro";
+const { userData } = Astro.props;
 ---
 
 <section class="bento__grid">
@@ -37,9 +37,9 @@ import CardBento from "../atoms/CardBento/CardBento.astro";
   </div>
   <div class="bento__item bento__item-5 overflow-hidden">
     <CardBento
-      title="Portfolio"
+      title="Discord"
       link="https://itssofi.dev"
-      texto="Ver mis proyectos"
+      texto="Únete en el servidor"
       bgImage="img/paisaje.webp"
     >
       <iconify-icon

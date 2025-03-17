@@ -1,10 +1,10 @@
 ---
 import socialData from "@data/social.json";
 import LinkSocial from "@atoms/LinkSocial.astro";
-const {linksCount=3} = Astro.props
+const {linksCount=socialData.length} = Astro.props
 
 ---
 
-<section class={`flex justify-center w-full gap-3  h-full mb-4  ${linksCount >   3 ?  "flex-wrap" : ""}`}>
+<section class={`flex justify-center w-full gap-3  h-full mb-6  ${linksCount >   3 ?  "flex-wrap" : ""}`}>
   {socialData.slice(0, linksCount).map((e) => <LinkSocial {...e} />)}
 </section>
