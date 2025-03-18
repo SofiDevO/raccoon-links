@@ -10,6 +10,7 @@ import userData from "@data/user.json";
 import BlogPost from "@src/components/atoms/BlogPost/BlogPost";
 import Title from "@src/components/atoms/Title.astro";
 import SwiperComponent from "@molecules/SwiperComponent/SwiperComponent.astro";
+import ProductCarousel from "@molecules/ProductCarousel/ProductCarousel.astro";
 
 ---
 
@@ -19,11 +20,12 @@ import SwiperComponent from "@molecules/SwiperComponent/SwiperComponent.astro";
     <!-- Num of social links 👇🏻 by default it show all -->
     <SocialIcons linksCount={4}/>
     <BentoMain  userData={userData}/>
-    <Title title="Mi artículo más reciente" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/>
-    <BlogPost  />
+    <!-- <Title title="Mi artículo más reciente" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/> -->
+<!--     <BlogPost  /> -->
     <Title title="Apoya mi contenido" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/>
     <SupportBento />
     <Title title="Mis videos más recientes" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/>
     <SwiperComponent/>
+    <ProductCarousel/>
   </main>
 </Layout>

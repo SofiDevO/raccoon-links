@@ -2,7 +2,10 @@
 import YoutubeMember from "@molecules/YoutubeMember.astro"
 import KofiSupport from "@molecules/KofiSupport.astro"
 import GithubSponsor from "@molecules/GithubSponsor.astro"
-import WishList from "@atoms/WishList.astro"
+import WishList from "@atoms/SupportCard.astro"
+import dataSupport from "@data/support.json";
+import SupportCard from "@atoms/SupportCard.astro";
+console.log(dataSupport.amazon.title)
 ---
 
 <section id="support-bento">
@@ -13,9 +16,11 @@ import WishList from "@atoms/WishList.astro"
         <KofiSupport />
     </div>
     <div class="bento__item">
-        <WishList />
+        <SupportCard url={dataSupport.amazon.url} title={dataSupport.amazon.title} icon={dataSupport.amazon.icon} />
     </div>
-    <div class="bento__item"></div>
+    <div class="bento__item">
+        <SupportCard url={dataSupport.paypal.url} title={dataSupport.paypal.title} icon={dataSupport.paypal.icon} />
+    </div>
     <div class="bento__item">
         <GithubSponsor />
     </div>

@@ -4,7 +4,7 @@ import userData from "@data/user.json";
 const BlogPost = () => {
   const posts = cardsData.posts.nodes;
   const firstPost = posts.length > 0 ? posts[0] : null;
-  console.log(firstPost);
+
   return (
     <>
       {firstPost ? (

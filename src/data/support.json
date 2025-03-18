@@ -21,7 +21,12 @@
     },
     "amazon": {
         "url": "#",
-        "icon": "CibAmazon",
+        "icon": "ant-design:amazon-outlined",
         "title": "Wish List"
+    },
+    "paypal": {
+        "url": "#",
+        "icon": "ic:baseline-paypal",
+        "title": "Donate"
     }
 }

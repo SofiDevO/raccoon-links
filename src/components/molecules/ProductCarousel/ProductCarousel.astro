@@ -1,0 +1,65 @@
+---
+import productData from "@data/productData.json";
+type Product = {
+  title: string;
+  imageID: string;
+  url: string;
+};
+---
+<div class="swiper__container">
+  <swiper-container
+    class="swiperProduct"
+    effect="cards"
+    grab-cursor="true"
+    pagination="true"
+    pagination-clickable="true"
+    navigation="true"
+    loop="true"
+  >
+    {
+      productData.map((product: Product) => {
+        const { title, imageID: image } = product;
+        return (
+          <swiper-slide>
+            <img src={`https://i.imgur.com/${image}.png`} alt={title} />
+          </swiper-slide>
+        );
+      })
+    }
+  </swiper-container>
+
+  <style>
+    /* body {
+      background: #eee;
+      font-family:
+        Helvetica Neue,
+        Helvetica,
+        Arial,
+        sans-serif;
+      font-size: 14px;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    } */
+
+    .swiper__container {
+      width: 100%;
+      height: 100%;
+    }
+
+    swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      background: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
