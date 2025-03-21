@@ -1,0 +1,28 @@
+---
+import userData from "@data/user.json";
+import Title from "../atoms/Title.astro";
+const wordpressSite = userData.blog;
+const res = await fetch(`${wordpressSite}/wp-json/wp/v2/posts?_embed`);
+
+const data = await res.json();
+const post = data[0];
+console.log
+---
+  <Title title="Mi artículo más reciente" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/>
+
+      <a href={post.link } target="_blank" rel="noopener noreferrer nofollow" class="flex flex-col p-2 bg-btn rounded-2xl mb-3.5 max-h-[30dvh] aspect-video">
+
+        <div class="rounded-2xl overflow-hidden group">
+          <img
+            alt={post.title || "Post image"}
+            src={ post._embedded['wp:featuredmedia']['0'].source_url
+               ||
+              "/img/bannerSofidev.webp"
+            }
+            class="w-full h-full object-cover group-hover:scale-[1.05]  group-hover:saturate-50 transition-transform duration-500 ease-in-out"
+          />
+
+        </div>
+
+
+      </a>

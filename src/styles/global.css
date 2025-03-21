@@ -42,23 +42,11 @@ html {
 }
 
 body {
-    @apply font-sans bg-primary m-0 p-0 flex flex-col min-h-screen items-center;
+    @apply font-sans bg-primary m-0 p-0 flex flex-col h-full items-center;
 }
 
 
-main {
-     display: flex;
-     flex-direction: column;
-     justify-content: center;
-     align-items: center;
-     width: 100%;
-     max-width: 500px;
-     padding: 3rem .5rem .5rem;
-     gap: .8rem;
-     @media screen and (max-width: 728px) {
-        padding-top: 4rem;
-     }
-}
+
 
 .text-gradient {
     background: var(--purple-color);

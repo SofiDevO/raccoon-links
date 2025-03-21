@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from 'preact/hooks';
+
+
 import "./clock.css"
 const Clock = () => {
   const getCurrentTime = () => {

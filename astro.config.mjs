@@ -1,8 +1,10 @@
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import vercel from "@astrojs/vercel";
-import react from "@astrojs/react";
+
 import mdx from "@astrojs/mdx";
+
+import preact from "@astrojs/preact";
 
 export default defineConfig({
   vite: {
@@ -12,6 +14,6 @@ export default defineConfig({
   site: "https://link.itssofi.dev",
   adapter: vercel(),
   output: "server",
-  integrations: [react(), mdx()],
+  integrations: [ mdx(), preact()],
 
 });
