@@ -10,12 +10,12 @@ interface Props {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-import { ClientRouter } from "astro:transitions";
+/* import { ClientRouter } from "astro:transitions"; */
 
 const {
   title = "Raccoon Links",
   description = " All my links in one place",
-  image = "img/banner.png",
+  image = "https://res.cloudinary.com/dvjox4xut/images/v1743103208/metaBanner/metaBanner.png",
 } = Astro.props;
 ---
 
@@ -53,7 +53,7 @@ const {
 
 <!-- Iconify CDN -->
 <script src="https://code.iconify.design/iconify-icon/2.3.0/iconify-icon.min.js"></script>
-<ClientRouter />
+<!-- <ClientRouter /> -->
 
   <script
     src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"

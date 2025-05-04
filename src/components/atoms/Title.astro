@@ -1,7 +1,7 @@
 ---
-const { title, class:className, ...props} = Astro.props;
+const { title, space=true, class:className, ...props} = Astro.props;
 
 ---
 
 
-<h2 class={className} {...props}>{title}</h2>
+<h2 class={`text-center bg-gradient-to-r from-caracol to-celeste h-full p-1 bg-clip-text text-4xl lg:text-5xl font-bold text-transparent mb-0 {${space} && 'my-4'} ${className}`} {...props}>{title}</h2>

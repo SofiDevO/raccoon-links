@@ -2,110 +2,246 @@
 import YoutubeChannels from "@data/youtubeChannels.json";
 import { fetchYouTubeVideos } from "@src/services/youtubeService";
 
-const MAX_VIDEOS = 5;
+const MAX_VIDEOS = 3;
 const CHANNEL_ID = YoutubeChannels[0].split("channel/")[1];
 const latestVideos = await fetchYouTubeVideos(CHANNEL_ID);
 ---
 
-<div class="swiper__container">
-  <swiper-container
-    class="mySwiper"
-    effect="cards"
-    grab-cursor="true"
-    pagination="true"
-    pagination-clickable="true"
-    navigation="true"
-    loop="true"
-  >
+<script >
+  // Slider
+  const slider = function () {
+    const slides = document.querySelectorAll(".slide");
+    const btnLeft = document.querySelector(".slider__btn--left");
+    const btnRight = document.querySelector(".slider__btn--right");
+    const dotContainer = document.querySelector(".dots");
+
+    let curSlide = 0;
+    const maxSlide = slides.length;
+
+    // Functions
+    const createDots = function () {
+      slides.forEach(function (_, i) {
+        if (dotContainer) {
+          dotContainer.insertAdjacentHTML(
+            "beforeend",
+            `<button class="dots__dot" data-slide="${i}"></button>`
+          );
+        }
+      });
+    };
+
+    const activateDot = function (slide: number) {
+      document
+        .querySelectorAll(".dots__dot")
+        .forEach((dot) => dot.classList.remove("dots__dot--active"));
+
+      const activeDot = document.querySelector(`.dots__dot[data-slide="${slide}"]`);
+      if (activeDot) {
+        activeDot.classList.add("dots__dot--active");
+      }
+    };
+
+    const goToSlide = function (slide: number) {
+      slides.forEach(
+        (s, i) => ((s as HTMLElement).style.transform = `translateX(${100 * (i - slide)}%)`)
+      );
+    };
+
+    // Next slide
+    const nextSlide = function () {
+      if (curSlide === maxSlide - 1) {
+        curSlide = 0;
+      } else {
+        curSlide++;
+      }
+
+      goToSlide(curSlide);
+      activateDot(curSlide);
+    };
+
+    const prevSlide = function () {
+      if (curSlide === 0) {
+        curSlide = maxSlide - 1;
+      } else {
+        curSlide--;
+      }
+      goToSlide(curSlide);
+      activateDot(curSlide);
+    };
+
+    const init = function () {
+      goToSlide(0);
+      createDots();
+
+      activateDot(0);
+    };
+    init();
+
+    // Event handlers
+    if (btnRight) {
+      btnRight.addEventListener("click", nextSlide);
+    }
+    btnLeft.addEventListener("click", prevSlide);
+
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "ArrowLeft") prevSlide();
+      e.key === "ArrowRight" && nextSlide();
+    });
+
+    dotContainer.addEventListener("click", function (e) {
+      if (e.target.classList.contains("dots__dot")) {
+        const { slide } = e.target.dataset;
+        goToSlide(slide);
+        activateDot(slide);
+      }
+    });
+  };
+  slider();
+</script>
+
+<div class="latest__video">
+  <div class="slider">
     {
-      latestVideos.slice(0, MAX_VIDEOS).map((video: any) => {
+      latestVideos.slice(0, MAX_VIDEOS).map((video: any, index: number) => {
         const { link, title } = video;
         return (
-          <swiper-slide>
-            <article class="rounded-2xl overflow-hidden w-full">
-              <fast-youtube src={link} title={title} />
-            </article>
-          </swiper-slide>
-        );
-      })
-    }
-  </swiper-container>
-
-<!--   <script
-    src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-element-bundle.min.js"
-  ></script> -->
+          <div class={`slide slide--${index + 1}`}>
+            <fast-youtube src={link} title={title} />
+          </div>
+          );
+        })
+      }
+      <div class="dots"></div>
+      <button class="slider__btn slider__btn--left">&#8249;</button>
+      <button class="slider__btn slider__btn--right">&#8250;</button>
+  </div>
 </div>
 
-<style >
-  swiper-container {
-    &::part(button-next),
-    &::part(button-prev) {
-      padding: 10px 15px;
-      border-radius: 50%;
-      background-color: #0000002e;
-      backdrop-filter: blur(10px);
-    }
-  }
-
-  .swiper__container {
-    position: relative;
+<style is:global>
+  .latest__video {
+    width: 100%;
     height: 100%;
   }
 
-  .swiper__container {
-    font-family:
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
+  iframe {
+    width: 100%;
+    height: 100%;
   }
 
-  .swiper__container {
-    font-family:
-      Helvetica Neue,
-      Helvetica,
-      Arial,
-      sans-serif;
-    font-size: 14px;
-    color: #000;
-    margin: 0;
-    padding: 0;
+  /* SLIDER */
+  .slider {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+
+
+    /* IN THE END */
+    overflow: hidden;
   }
 
-  .swiper__container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  swiper-container {
-    padding: 0 0.5rem;
+  .slide {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     height: auto;
-    overflow: hidden;
-    max-width: 29rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+
+
+    /* THIS creates the animation! */
+    transition: transform 1s;
+  }
+
+  .slide > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+  }
+
+  .slider__btn {
+    position: absolute;
+    top: 50%;
+    z-index: 10;
+    border: none;
+    background: rgba(90, 8, 242, 0.759);
+    font-family: inherit;
+    color: aqua;
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    font-size: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     @media screen and (max-width: 768px) {
-      max-width: 23rem;
+      height: 2.3rem;
+      width: 2.3rem;
+      font-size: 2.3rem;
+      top: 30%;
     }
   }
 
-  swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 18px;
-    font-size: 22px;
-    font-weight: bold;
-    color: #fff;
+  .slider__btn--left {
+    left: 6%;
+    transform: translate(-50%, -50%);
+    @media screen and (max-width: 768px) {
+      left: 9%;
+      transform: translate(-50%, 30%);
+    }
   }
 
-  swiper-slide:nth-child(1n) {
-    background-color: rgba(64, 0, 128, 0.26);
-    backdrop-filter: blur(12px);
-    padding: 0.5rem;
+  .slider__btn--right {
+    right: 6%;
+    transform: translate(50%, -50%);
+    @media screen and (max-width: 768px) {
+      right: 9%;
+      transform: translate(50%, 30%);
+
+    }
+  }
+
+  .dots {
+    position: absolute;
+    top:96%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    @media screen and (max-width: 768px) {
+      top: 90%;
+      gap: 0.7rem;
+    }
+  }
+
+  .dots__dot {
+    border: none;
+    background-color: #00ff33;
+    opacity: 0.7;
+    height: .8rem;
+    width: .8rem;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.5s;
+    @media screen and (max-width: 768px) {
+      height: .6rem;
+      width: .6rem;
+    }
+  }
+
+  .dots__dot:last-child {
+    margin: 0;
+  }
+
+  .dots__dot--active {
+    /* background-color: #fff; */
+    background-color: #3b088f;
+    opacity: 1;
   }
 </style>

@@ -2,15 +2,14 @@
 import Avatar from "@src/components/atoms/Avatar.astro";
 import Layout from "@src/layouts/Layout.astro";
 import userData from "@data/user.json";
-export const prerender = false;
 import { Content as AboutDescription } from "@data/about.mdx";
 import CardAbout from "@src/components/atoms/CardAbout.astro";
 import ArrowLink from "@src/components/atoms/ArrowLink.astro";
-import { fade } from "astro:transitions";
+export const prerender = true;
 ---
 
 <Layout title="About">
-  <main id="about" class="flex flex-col relative mb-20 pt-20 items-start">
+  <main id="about" class="flex flex-col relative mb-10 pt-20 items-start">
     <ArrowLink
       link="/"
       direction="left"
@@ -19,7 +18,6 @@ import { fade } from "astro:transitions";
     />
     <Avatar
       transition="about"
-      animate="fade"
       hasName={false}
       name={userData.name}
       profile__pic={userData.profilePic}
@@ -28,14 +26,24 @@ import { fade } from "astro:transitions";
       <h1 class="text-gradient text-center font-bold text-3xl text-color-text">
         {userData.name}
       </h1>
-      <AboutDescription />
+      <div class="space-y-5 flex flex-col">
+        <AboutDescription />
+      </div>
     </CardAbout>
   </main>
 </Layout>
 
 <style is:global>
-  main {
-    padding: 2rem 0.5rem 0.5rem;
+  #about {
+    padding: 1rem;
+    padding-top: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  article {
+    padding: 2rem 0.5rem 0.9rem;
   }
   #about {
     & h1,
@@ -74,6 +82,10 @@ import { fade } from "astro:transitions";
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+    }
+    img:not(#avatar) {
+      border-radius: 8px;
+      margin: 2rem auto;
     }
   }
 </style>

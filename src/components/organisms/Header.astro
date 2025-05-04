@@ -1,15 +1,22 @@
 ---
 import Avatar from "../atoms/Avatar.astro";
-const {userData} = Astro.props
+const { userData } = Astro.props;
 import { fade } from "astro:transitions";
 ---
 
-<header class="w-full max-w-[500px] h-[20dvh] min-h-[8rem] flex flex-col  justify-start relative ">
+<header
+  class="w-full   h-[20dvh] xl:h-[25dvh] min-h-[8rem] flex flex-col justify-start relative margin-x-auto"
+>
   <div class="banner__container">
-    <img class="h-[20dvh]  object-cover  w-full bg-top" src={userData.bannerImage} />
+    <img
+      class="h-[20dvh] xl:h-[40dvh] object-cover w-full bg-top"
+      src={userData.bannerImage}
+    />
     <div class="reflect"></div>
   </div>
-  <Avatar name={userData.name} profile__pic={userData.profilePic}
+  <Avatar
+    name={userData.name}
+    profile__pic={userData.profilePic}
     transition="home"
     animate="fade"
   />
@@ -21,9 +28,11 @@ import { fade } from "astro:transitions";
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: 768px;
-	height: 5dvh;
+    height: 10dvh;
     z-index: -1;
+    @media (width < 768px) {
+      height: 5dvh;
+    }
   }
 
   .reflect {
@@ -32,11 +41,10 @@ import { fade } from "astro:transitions";
     height: 14dvh;
     backdrop-filter: blur(26px);
     position: absolute;
-	top:360%;
+    top: 360%;
     background: linear-gradient(to bottom, #4b00559d, var(--bg-color-default));
     mask-image: linear-gradient(to bottom, #5c0063, #2c014a);
     overflow: hidden;
-
   }
   .card__container {
     display: flex;

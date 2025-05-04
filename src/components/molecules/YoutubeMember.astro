@@ -1,8 +1,84 @@
 ---
 import Support from "@data/support.json";
-const {url, title} = Support.youtube;
+import Crown from "../atoms/icons/Crown.astro";
+const { url, title } = Support.youtube;
 ---
-<a href={url} target="_blank" class="w-full h-full flex flex-row items-center justify-center gap-3 p-2">
-  <h3 class="text-text font-bold text-lg">{title}</h3>
-  <iconify-icon icon="logos:youtube-icon" width="100" height="80"></iconify-icon>
-</a>
+
+<article
+  class="yt-card relative w-full h-full transition-bg duration-500 hover:bg-red-500 flex flex-row flex-wrap lg:items-center items-start justify-center gap-10 p-2 group"
+>
+  <div class="flex flex-col gap-5 lg:gap-10">
+    <h3
+      class="yt-title text-text font-bold text-lg xl:text-3xl text-pretty group-hover:text-white"
+    >
+      {title}
+    </h3>
+    <a
+      class="yt-button z-20 text-text font-bold text-lg text-white group-hover:text-red-600 group-hover:bg-white bg-red-600 px-5 py-2 rounded-md text-center w-full lg:max-w-[200px]"
+      href={url}
+      target="_blank"
+      >Unirte
+    </a>
+  </div>
+
+  <Crown
+    class="absolute z-20 top-[53%] lg:top-0 xl:top-[10%] left-20 lg:left-[64%] xl:left-100 right-0 lg:w-40 lg:h-40"
+  />
+  <iconify-icon
+    class="absolute z-10 top-[78%] lg:top-0 lg:bottom-[10%] lg:left-90   text-4xl lg:text-8xl group-hover:rotate-10 transition-all ease-in-out duration-200 self-end filter drop-shadow-[0_2px_1px_rgba(0,0,0,0.25)]"
+    icon="logos:youtube-icon"></iconify-icon>
+</article>
+
+<style is:global>
+  .line {
+    stroke-width: 1.7px;
+    stroke-dasharray: 185;
+    stroke-dashoffset: 185;
+  }
+  .yt-card:hover .line {
+    animation: drawPath 1.5s ease-out forwards;
+  }
+  @media (width <= 464px) {
+    .yt-card.show {
+      background: #fb2c36;
+      transition: background 0.6s ease-in-out 1s;
+      animation-timeline: view();
+      & .yt-title {
+        color: white;
+        transition: color 0.6s ease-in-out 1s;
+      }
+      & .line.show {
+        animation: drawPath 1.5s ease-out forwards 2s;
+      }
+      & .yt-button {
+        margin-bottom: 1rem;
+        background: white;
+        color: #fb2c36;
+        transition: background 0.6s  ease-in-out 1.5s, color 0.6s ease-in-out 1.5s;
+      }
+    }
+  }
+
+  @keyframes drawPath {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+</style>
+<script>
+  const corona = document.querySelector(".line");
+  const card = document.querySelector(".yt-card");
+  const intersectionCallback = (entries: IntersectionObserverEntry[]) => {
+    entries.forEach((entry: IntersectionObserverEntry ) => {
+      if (entry.isIntersecting) {
+        card?.classList.add("show");
+        corona?.classList.add("show");
+      } else {
+        card?.classList.remove("show");
+        corona?.classList.remove("show");
+      }
+    });
+  };
+  const observer = new IntersectionObserver(intersectionCallback);
+  observer.observe(card);
+</script>

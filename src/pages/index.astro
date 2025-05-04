@@ -1,33 +1,37 @@
 ---
-import LeftBento from "@organisms/left-bento/LeftBento.astro";
+/* You can change data of this page by editing 'data/user.json' */
+import userData from "@data/user.json";
+
 import Layout from "@layouts/Layout.astro";
 import SocialIcons from "@src/components/atoms/SocialIcons.astro";
 import BentoMain from "@organisms/BentoMain.astro";
 import SupportBento from "@organisms/SupportBento.astro";
 import Header from "@src/components/organisms/Header.astro";
-export const prerender = false;
-import userData from "@data/user.json";
-import BlogPost from "@src/components/atoms/BlogPost/BlogPost";
+import BlogPost from "@src/components/molecules/BlogPost/BlogPost";
 import Title from "@src/components/atoms/Title.astro";
 import SwiperComponent from "@molecules/SwiperComponent/SwiperComponent.astro";
-import ProductCarousel from "@molecules/ProductCarousel/ProductCarousel.astro";
-import LatestPostWP from "@src/components/organisms/LatestPostWP.astro";
+
+export const prerender = true;
 
 ---
 
 <Layout title="Welcome to Astro.">
   <Header userData={userData}/>
-  <main class="flex flex-col justify-center items-center  w-full space-y-6 pb-10 h-full max-w-[500px] px-4 gap-[.8rem] pt-[4rem] lg:pt-[3rem]">
+  <main class="flex flex-col justify-center items-center  w-full space-y-6 pb-10 h-full  px-4 gap-[.8rem] pt-[4rem] lg:pt-[3rem]">
     <!-- Num of social links 👇🏻 by default it show all -->
-    <SocialIcons linksCount={4}/>
-    <BentoMain  userData={userData}/>
-    <!-- <Title title="Mi artículo más reciente" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/> -->
-  <!--   <BlogPost  /> -->
-    <LatestPostWP/>
-    <Title title="Apoya mi contenido" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/>
+    <SocialIcons linksCount={5}/>
+    <BentoMain  userData={userData} />
+    <!-- Check the Dot env to know more about how
+      to add blog post from wordpress 👇
+      or just delete this component or replace it qith something else -->
+    <Title title="Mi artículo más reciente" />
+    <BlogPost  />
+
+    <Title title="Apoya mi contenido" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text  text-4xl lg:text-5xl font-bold text-transparent my-4"/>
     <SupportBento />
-    <Title title="Mis videos más recientes" class="text-center bg-gradient-to-r from-caracol to-celeste bg-clip-text text-5xl font-bold text-transparent my-4"/>
-    <SwiperComponent/>
+    <Title title="Mi video más reciente" />
+    <SwiperComponent server/>
+
 
 
   </main>

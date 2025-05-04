@@ -1,16 +1,16 @@
 ---
-const { link="/", direction,  class: className , transition, ...res } = Astro.props;
+const { link="/", direction,  class: className, ariaLabel , transition, ...res } = Astro.props;
 import Icon from "@atoms/icons/Icon.astro";
 ---
 
-<a href={link} class={className}   transition:name={transition}   {...res}>
+<a href={link} class={className}   transition:name={transition}   {...res} aria-label={ariaLabel}>
     <slot name="arrow-content" />
 
     {
         direction === "left" ? (
-        <Icon name="stash:arrow-left-solid " class="text-caracol" />
+        <Icon name="stash:arrow-left-solid " class="text-caracol text" width="25" height="25" />
     ) : (
-        <Icon name="stash:arrow-right-solid" class="rotate-180 text-caracol" />
+        <Icon name="stash:arrow-right-solid" class="rotate-180 text-caracol text" width="25" height="25" />
     )
   }
 </a>

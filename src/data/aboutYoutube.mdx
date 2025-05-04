@@ -1,0 +1,17 @@
+import Title from "@atoms/Title.astro";
+import Button from "@atoms/Button.astro";
+import UserData from "@data/user.json";
+
+## Suscríbete a Youtube
+
+<Title title="Suscríbete a Youtube" />
+
+Transmito todos los Miércoles, Viernes y Domingos a las 8:00 PM (GMT-6).
+
+<Button
+  content="Ver en Twitch"
+  href={UserData.youtube}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="bg-twitch bg-caracol hover:bg-violet-900"
+/>

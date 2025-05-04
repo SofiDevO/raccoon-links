@@ -1,5 +1,5 @@
 ---
-const { title, texto, link, bgImage } = Astro.props;
+const { title, texto, link, bgImage, icon, left=false } = Astro.props;
 ---
 
 <a
@@ -8,15 +8,20 @@ const { title, texto, link, bgImage } = Astro.props;
   rel="noopener noreferrer nofollow"
   id="portfolio"
   class={`flex flex-col justify-center h-full items-center group relative  bg-cover`}
-  style={{backgroundImage: `url(${bgImage})`}}
+  style={{ backgroundImage: `url(${bgImage})` }}
 >
   <div
-    class="w-full flex flex-col items-center gap-5 pt-6 px-4 overflow-hidden h-full backdrop-blur-[5px] bg-transparent"
+    class="w-full flex flex-col items-center gap-5 pt-6 px-4 overflow-hidden h-full backdrop-blur-[4px] bg-[#0a001c87]"
   >
     <h2 class="text-white font-bold text-center text-3xl">{title}</h2>
-    <p class="text-lg text-white font-semibold">
+    <p class="text-lg text-ufo font-semibold">
       {texto}
     </p>
-    <slot name="icon" />
   </div>
+  <iconify-icon
+    class={`text-caracol z-10 absolute top-24 text-9xl lg:text-[300px] ${ left ? "-left-80 lg:-left-120 right-0 rotate-[30deg]" : "-right-7 left-34"}  -rotate-[30deg] group-hover:top-16 transition-all ease-in-out duration-200`}
+    slot="icon"
+    icon={icon}
+
+ ></iconify-icon>
 </a>

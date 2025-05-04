@@ -1,17 +1,16 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+@plugin '@tailwindcss/typography';
 
 :root {
     --swiper-navigation-color: aqua;
-
-
+    --ufo-green: #33ff76;
     --white-color: #E8E7E7;
     --bg-color-default: var(--white-color);
     --text-color: #181818;
     --purple-color: #6A00FF;
     --dark-purple: #140030;
-    --clock-font:  "DigitalNumbers-Regular", sans-serif;
+    --clock-font: "DigitalNumbers-Regular", sans-serif;
     --card-bg: #ffffff;
-
     --color-celeste: rgba(0, 116, 174, 0.92);
 }
 
@@ -20,14 +19,16 @@
     font-family: "DigitalNumbers-Regular";
     src: url("/fonts/DigitalNumbers-Regular.ttf") format("truetype");
 }
+
 .dark {
     --bg-color-default: #191b22;
     --text-color: #E8E7E7;
     --card-bg: #0c0c0c;
 }
 
-@theme {
+@theme  {
     --color-primary: var(--bg-color-default);
+    --color-ufo: var(--ufo-green);
     --color-color-text: var(--text-color);
     --color-btn: #F5F5F5;
     --color-caracol: var(--purple-color);
@@ -37,20 +38,33 @@
     --drop-shadow-shadow-cards: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);
 }
 
-html {
-    @apply scroll-smooth *:box-content;
-}
 
 body {
-    @apply font-sans bg-primary m-0 p-0 flex flex-col h-full items-center;
+    font-family: sans-serif;
+    background-color: var(--color-primary);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+    max-width: 600px;
+
+    @media (min-width: 1280px) {
+
+        max-width: 800px;
+
+    }
 }
 
-
-
+main {
+    box-shadow: 0px 2px 6.8px 0px rgba(0, 0, 0, 0.25);
+}
 
 .text-gradient {
     background: var(--purple-color);
-    background:  linear-gradient(90deg, #6A00FF 0%, rgba(0, 116, 174, 0.92) 100%);
+    background: linear-gradient(90deg, #6A00FF 0%, rgba(0, 116, 174, 0.92) 100%);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;

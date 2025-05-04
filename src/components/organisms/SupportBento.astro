@@ -1,67 +1,75 @@
 ---
-import YoutubeMember from "@molecules/YoutubeMember.astro"
-import KofiSupport from "@molecules/KofiSupport.astro"
-import GithubSponsor from "@molecules/GithubSponsor.astro"
-import WishList from "@atoms/SupportCard.astro"
+import YoutubeMember from "@molecules/YoutubeMember.astro";
+import KofiSupport from "@molecules/KofiSupport.astro";
+import GithubSponsor from "@molecules/GithubSponsor.astro";
+import WishList from "@atoms/SupportCard.astro";
 import dataSupport from "@data/support.json";
 import SupportCard from "@atoms/SupportCard.astro";
-
 ---
 
 <section id="support-bento">
-    <div class="bento__item">
-        <YoutubeMember />
-    </div>
-    <div class="bento__item">
-        <KofiSupport />
-    </div>
-    <div class="bento__item">
-        <SupportCard url={dataSupport.amazon.url} title={dataSupport.amazon.title} icon={dataSupport.amazon.icon} />
-    </div>
-    <div class="bento__item">
-        <SupportCard url={dataSupport.paypal.url} title={dataSupport.paypal.title} icon={dataSupport.paypal.icon} />
-    </div>
-    <div class="bento__item">
-        <GithubSponsor />
-    </div>
+  <div class="bento__item">
+    <YoutubeMember />
+  </div>
+  <div class="bento__item">
+    <KofiSupport />
+  </div>
+  <div class="bento__item">
+    <SupportCard
+      url={dataSupport.amazon.url}
+      title={dataSupport.amazon.title}
+      icon={dataSupport.amazon.icon}
+    />
+  </div>
+  <div class="bento__item">
+    <SupportCard
+      url={dataSupport.paypal.url}
+      title={dataSupport.paypal.title}
+      icon={dataSupport.paypal.icon}
+    />
+  </div>
+  <div class="bento__item">
+    <GithubSponsor />
+  </div>
 </section>
 
 <style>
-    section#support-bento {
-        width: 100%;
-        display: grid;
-        grid-template-areas:
-            "uno uno dos"
-            "tres cinco cinco"
-            "cuatro cinco cinco";
-        gap: 10px;
-    }
+  section#support-bento {
+    width: 100%;
+    display: grid;
+    grid-template-areas:
+      "uno uno dos"
+      "uno uno dos"
+      "tres cinco cinco"
+      "cuatro cinco cinco";
+    gap: 10px;
+    grid-template-rows:  repeat(4, minmax(100px, 1fr));
+}
 
-    .bento__item {
-        min-height: 100px;
-        border-radius: 12px;
-        background-color: #F5F5F5;
-        border-color: aqua;
-    }
+  .bento__item {
+    border-radius: 12px;
+    background-color: #f5f5f5;
+    border-color: aqua;
+    overflow: hidden;
+  }
 
-    .bento__item:nth-child(1) {
-        grid-area: uno;
-    }
+  .bento__item:nth-child(1) {
+    grid-area: uno;
+  }
 
-    .bento__item:nth-child(2) {
-        grid-area:dos;
-    }
+  .bento__item:nth-child(2) {
+    grid-area: dos;
+  }
 
-    .bento__item:nth-child(3) {
-        grid-area: tres;
-    }
+  .bento__item:nth-child(3) {
+    grid-area: tres;
+  }
 
-    .bento__item:nth-child(4) {
-        grid-area: cuatro;
-    }
+  .bento__item:nth-child(4) {
+    grid-area: cuatro;
+  }
 
-    .bento__item:nth-child(5) {
-        grid-area: cinco;
-    }
-
+  .bento__item:nth-child(5) {
+    grid-area: cinco;
+  }
 </style>

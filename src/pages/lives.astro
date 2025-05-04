@@ -1,12 +1,44 @@
 ---
-import ThemeButton from "@src/components/atoms/ThemeButton.astro";
 import Layout from "@src/layouts/Layout.astro";
+import Avatar from "@src/components/atoms/Avatar.astro";
+import ArrowLink from "@src/components/atoms/ArrowLink.astro";
+import userData from "@data/user.json";
+import LiveCard from "@src/components/molecules/LiveCard.astro";
+import { isLive } from "@src/utils/IsLive";
+const { isLiveBroadcast } = await isLive();
+
 ---
 
 <Layout title="Lives">
-  <main>
-    <ThemeButton  positionStyle="fixed top-4 right-4"/>
-    <h1 class="text-gradient font-bold text-3xl">Lives</h1>
-
+  <main class="relative">
+    <ArrowLink
+      link="/"
+      direction="left"
+      transition="home"
+      class="absolute top-4 left-10"
+      ariaLabel="Back to home"
+    />
+    <Avatar
+      transition="about"
+      hasName={false}
+      name={userData.name}
+      profile__pic={userData.profilePic}
+    />
+    <section class="flex flex-col items-center px-2">
+      <LiveCard isLiveBroadcast={isLiveBroadcast} server:defer/>
+    </section>
   </main>
 </Layout>
+
+
+<style>
+   main {
+      min-height: 100dvh;
+      padding: 1rem;
+      padding-top: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+    }
+</style>

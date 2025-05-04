@@ -1,0 +1,100 @@
+---
+import AboutTwitch from "@data/aboutTwitch.mdx";
+const { class: className, isLiveBroadcast, ...props } = Astro.props;
+
+---
+
+
+<article
+id="card"
+class="group shadow-shadow-cards bg-gradient-to-t from-[#CA95FF] to-white border-[1.8px] border-[#D6ACFF] shadow-[0_1px_6.7px_0] px-4 py-10 rounded-xl h-auto mt-10 content flex flex-col lg:flex-row text-left flex-wrap justify-between items-center lg:items-start gap-6 lg:gap-2"
+>
+<div
+  class="flex-1  lg:min-w-[27rem] prose dark:prose-invert prose-p:text-left prose-p:text-black prose-p:font-semibold prose-img:rounded-xl text-pretty  prose-h3:text-indigo-600 prose-h3:my-3"
+>
+  <AboutTwitch />
+</div>
+<div
+  class="relative flex-1 w-40 h-full lg:w-[244px] flex flex-col items-center justify-center"
+>
+  <img
+    class={`icon max-w-40 h-auto ${isLiveBroadcast ? "active" : ""}`}
+    src="/img/TwitchCaja.png"
+    alt="Social media icon"
+  />
+
+  <div
+    class="absolute top-20 right-30 lg:right-20 lg:top-10 xl:right-40 overflow-hidden rounded-full w-20 h-20 lg:w-30 lg:h-30 bg-caracol group-hover:bg-gradient-to-b from-caracol to-darkpurple transition-all duration-200 ease-in-out"
+  >
+    <img
+      src="https://avatars.githubusercontent.com/u/102200061?v=4"
+      alt=""
+      class="w-full h-full object-cover  transition-transform duration-200 ease-in-out rounded-full"
+    />
+  </div>
+</div>
+</article>
+
+
+<style>
+
+    .icon.active {
+      -webkit-animation: pulse-1 0.3s linear infinite both;
+      animation: pulse-1 0.3s linear infinite both;
+    }
+    #card:hover .icon.active {
+      animation-play-state: paused;
+    }
+    @keyframes pulse {
+      0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+      }
+      20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+      }
+      80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+      }
+      100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+      }
+    }
+    @keyframes pulse-1 {
+      0% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+      }
+      20% {
+        -webkit-transform: translate(-2px, 2px);
+        transform: translate(-2px, 2px);
+      }
+      40% {
+        -webkit-transform: translate(-2px, -2px);
+        transform: translate(-2px, -2px);
+      }
+      60% {
+        -webkit-transform: translate(2px, 2px);
+        transform: translate(2px, 2px);
+      }
+      80% {
+        -webkit-transform: translate(2px, -2px);
+        transform: translate(2px, -2px);
+      }
+      100% {
+        -webkit-transform: translate(0);
+        transform: translate(0);
+      }
+    }
+  </style>

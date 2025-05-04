@@ -1,6 +1,6 @@
 {
     "youtube": {
-        "url": "https://www.youtube.com/@SofiDev/membership",
+        "url": "https://www.youtube.com/channel/UC36_js-krsAHAEAWpEDhHtw/join",
         "icon": "fab fa-youtube",
         "title": "Become a Youtube member"
     },
@@ -10,7 +10,7 @@
         "title": "Support me on Ko-fi"
     },
     "discord": {
-        "url": "https://discord.gg/sofidev",
+        "url": "https://discord.com/invite/VYDj8pvfE4",
         "icon": "fab fa-discord",
         "title": "Join our Discord server"
     },
@@ -20,12 +20,12 @@
         "title": "Contribute in Github Sponsors"
     },
     "amazon": {
-        "url": "#",
+        "url": "https://www.amazon.com.mx/hz/wishlist/ls/3MKRGT0U0T5ZJ?ref_=wl_share",
         "icon": "ant-design:amazon-outlined",
         "title": "Wish List"
     },
     "paypal": {
-        "url": "#",
+        "url": "https://streamelements.com/sofidev/tip",
         "icon": "ic:baseline-paypal",
         "title": "Donate"
     }

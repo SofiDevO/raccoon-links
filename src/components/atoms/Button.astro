@@ -1,0 +1,31 @@
+---
+const {
+  href,
+  type = "button",
+  content,
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+{
+  href ? (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      class={`items-center px-4 py-2 border border-transparent text-sm  rounded-md shadow-sm no-underline font-bold  ${className}`}
+      {...rest}
+    >
+      {content}
+    </a>
+  ) : (
+    <button
+      type={type}
+      class={`items-center px-4 py-2 border border-transparent text-sm  rounded-md shadow-sm no-underline font-bold ${className}`}
+      {...rest}
+    >
+      {content}
+    </button>
+  )
+}

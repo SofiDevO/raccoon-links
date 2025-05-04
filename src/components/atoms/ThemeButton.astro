@@ -3,9 +3,9 @@ const { position, positionStyle="absolute" } = Astro.props;
 
 ---
 
-<script is:inline>
+<script >
 
-document.addEventListener( 'astro:page-load', () => {
+/* document.addEventListener( 'astro:page-load', () => { */
   const theme = (() => {
     if (typeof localStorage !== "undefined" && localStorage.getItem("theme")) {
       return localStorage.getItem("theme");
@@ -22,7 +22,7 @@ document.addEventListener( 'astro:page-load', () => {
     document.documentElement.classList.add("dark");
   }
 
-  window.localStorage.setItem("theme", theme);
+  window.localStorage.setItem("theme", theme || "light");
 
   const handleToggleClick = () => {
     const element = document.documentElement;
@@ -31,10 +31,11 @@ document.addEventListener( 'astro:page-load', () => {
     localStorage.setItem("theme", isDark ? "dark" : "light");
   };
 
-  document
-    .getElementById("themeToggle")
-    .addEventListener("click", handleToggleClick);
-});
+  const themeToggleButton = document.getElementById("themeToggle");
+  if (themeToggleButton) {
+    themeToggleButton.addEventListener("click", handleToggleClick);
+  }
+
 
 
 </script>

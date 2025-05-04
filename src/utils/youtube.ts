@@ -1,7 +1,7 @@
 
 
 export class fastYoutube extends HTMLElement {
-    static name = "fast-youtube";
+    static elementName = "fast-youtube";
 
     constructor() {
       super();
@@ -141,4 +141,4 @@ export class fastYoutube extends HTMLElement {
     }
   }
 
-  customElements.define(fastYoutube.name, fastYoutube);
+  customElements.define(fastYoutube.elementName, fastYoutube);

@@ -1,4 +1,6 @@
-const baseURL = import.meta.env.WPGRAPHQL_URL;
+import { WPGRAPHQL_URL } from "astro:env/server";
+
+const baseURL = WPGRAPHQL_URL;
 
 interface WPGraphQLParams {
   query: string;
